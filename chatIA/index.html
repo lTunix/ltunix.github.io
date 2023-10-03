@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat IA</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+		@keyframes escribir {
+			from { width: 100% }
+			to { width:0 }
+		}
+
+        .contenido {
+            text-align: center;
+            align-items: center;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 30px;
+        }
+        
+        #mensaje {
+            background-color: rgb(241, 237, 237);
+        }
+        
+        body {
+            font-family: helvetica;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .chat {
+            width: 335px;
+            border: solid 1px #EEE;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            height: 460px;
+            overflow: scroll;
+			background-image: url('wallpaper.jpg');
+			border-radius: 20px;
+			background-size: 100% auto;
+        }
+
+		.chat::-webkit-scrollbar { 
+			width: 0px; 
+			background: transparent; /* Chrome/Safari/Webkit */; 		  
+		}
+
+		@media only screen and (max-width: 768px) {
+		  .chat {
+			height: 290px;
+		  }
+		}
+        
+        .messages {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message {
+            border-radius: 20px;
+            padding: 8px 15px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .yours {
+            align-items: flex-start;
+        }
+        
+        .yours .message {
+            margin-right: 25%;
+            background-color: #eee;
+            position: relative;
+        }
+        
+        .yours .message.last:before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            bottom: 0;
+            left: -7px;
+            height: 20px;
+            width: 20px;
+            background: #eee;
+            border-bottom-right-radius: 15px;
+        }
+        
+        .yours .message.last:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: -10px;
+            width: 10px;
+            height: 20px;
+            background: white;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .mine {
+            align-items: flex-end;
+        }
+        
+        .mine .message {
+            color: white;
+            margin-left: 25%;
+            background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .mine .message.last:before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            bottom: 0;
+            right: -8px;
+            height: 20px;
+            width: 20px;
+            background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+            background-attachment: fixed;
+            border-bottom-left-radius: 15px;
+        }
+        
+        .mine .message.last:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            right: -10px;
+            width: 10px;
+            height: 20px;
+            background: white;
+            border-bottom-left-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenido">
+        <h1><img src="logo.png" width="100px" heigth="10px" alt=""></h1>
+        <!-- <textarea disabled name="chat" id="chat" cols="30" rows="20"></textarea> <br><br> -->
+        <div class="chat" id="chat"> <br><br>
+        </div>
+        <!-- <input type="text" name="mensaje" id="mensaje"> -->
+        <textarea name="mensaje" id="mensaje" cols="25" rows="2"></textarea>
+        <input type="text" hidden name="mensajeAnterior" id="mensajeAnterior"><br><br>
+        <input class="button" type="button" value="Enviar" onclick="procesarMensaje()" id="enviar">
+        <input class="button" type="button" value="Enseñar" onclick="ensenarMensaje()" id="ensenar"> <br><br><br>		
+    </div>    
+    <label>¿Quieres apoyarme con alguna donación?</label><br>
+        <label>Haz click en el siguiente botón e introduce su valor en USD, ¡Gracias!</label><br><br>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="business" value="SYR9W43B7TQWU" />
+            <input type="hidden" name="no_recurring" value="1" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_CL/i/scr/pixel.gif" width="1" height="1" />
+        </form><br>
+        <label>Marcos Fernández - 2021</label>
+
+</body>
+
+</html>
+
+<script src="script.js"></script>

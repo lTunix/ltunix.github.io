@@ -1,0 +1,80 @@
+html {
+    height: 100%;
+  }
+
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 8px;    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bienvenida {
+    color: white;
+    text-shadow: 1px 1px black;
+    font-size: 8px;
+    font-weight: bold;
+    position:absolute;
+    top:0;
+    right:0;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.progressbar {
+    font-size: 8px;
+    background-color: black;
+    border-radius: 13px; /* (height of inner div) / 2 + padding */
+    padding: 3px;
+    margin-top: 5px;
+}
+
+.progressbar > div {
+    font-size: 8px;
+     background-color: greenyellow;
+     width: 40%; /* Adjust with JavaScript */
+     height: 5px;
+     border-radius: 10px;
+}
+
+.centrarStats {
+    color: white;
+    font-size: 8px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.btnAccion {
+    font-size: 8px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+#nombrepersonaje {
+    font-size: 9px;
+	text-shadow: 1px 1px black;
+}
+
+.nes-btn {
+    font-size: 7px;
+}
+
+#btnFullscreen {
+    background-image:url(FS.png);
+    background-size: 15px 15px;
+    background-repeat:no-repeat;
+    height:40px;
+    width:40px;
+    background-position:center;
+}
+
+#btnExitFullscreen {
+    background-image:url(SF.png);
+    background-size: 30px 30px;
+    background-repeat:no-repeat;
+    height:40px;
+    width:40px;
+    background-position:center;
+}

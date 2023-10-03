@@ -1,0 +1,58 @@
+@font-face {
+  font-family: Roxane;
+  src: url(resources/RoxaneOutline-Regular.ttf);
+}
+
+body {
+  background-color: black;
+  background-image: url(resources/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Roxane;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 1;
+  color: #bcc5e5;
+  font-weight: bold;
+}
+
+img {
+  width: 200px;
+  height: auto;
+}
+
+.contenido {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  align-items: baseline;
+}
+
+@media (max-width: 900px) {
+  .contenido {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.planeta {
+  padding-top: 80px;
+}
+
+.descripcion {
+    padding-bottom: 10px;
+}
+
+.descripcionResultado {
+  color: rgb(253, 253, 253);
+  background-color: rgba(139, 139, 139, 0.5);
+  border-radius: 20px 20px;
+  margin: auto;
+  width: 50%;
+}
+
+.donacion {
+  font-size: 15px;
+  color: white;
+  font-family: sans-serif;
+}

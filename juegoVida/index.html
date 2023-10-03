@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>Juego de la vida</title>
+    <style>
+        @font-face {
+            font-family: 'silkscreen';
+            src: url('slkscr.ttf');
+        }
+        
+        body {
+            font: 13px/22px Helvetica;
+        }
+        
+        .buttons {
+            overflow: hidden;
+        }
+        
+        .buttons>div {
+            width: calc(50% - 40px);
+            padding: 20px;
+            float: left;
+            position: fixed;
+            bottom: 0;
+            top: 0;
+        }
+        
+        .buttons .dark {
+            background: #000;
+            left: 50%;
+        }
+        
+        .buttons a {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        
+        a#link {
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+        }
+        /*------------------------------------------------------*/
+        /* BUTTONS */
+        /*------------------------------------------------------*/
+        
+        .btn,
+        input[type="submit"] {
+            cursor: pointer;
+            border-radius: 0px;
+            text-decoration: none;
+            padding: 12px 18px;
+            font-size: 12px;
+            line-height: 19px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            letter-spacing: 3px;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+        
+        .btn-mid {
+            border-radius: 0px;
+            text-decoration: none;
+            padding: 14px 21px;
+            font-size: 13px;
+            line-height: 25px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            letter-spacing: 3px;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+        
+        .btn-big {
+            border-radius: 0px;
+            text-decoration: none;
+            padding: 18px 24px;
+            font-size: 14px;
+            line-height: 40px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            letter-spacing: 3px;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+        
+        .btn:hover,
+        input[type="submit"]:hover {
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+        
+        .btn-white {
+            border: solid 2px #fff;
+            background: transparent;
+            color: #fff !important;
+        }
+        
+        .btn-white:hover {
+            border: solid 2px #fff;
+            background: #fff;
+            color: #1f1f1f !important;
+        }
+        
+        .btn-dark,
+        input[type="submit"] {
+            border: solid 2px #1f1f1f;
+            background: transparent;
+            color: #1f1f1f;
+        }
+        
+        .btn-dark:hover,
+        input[type="submit"]:hover,
+        .btn-dark.active {
+            border: solid 2px #1f1f1f;
+            background: #1f1f1f;
+            color: #fff;
+        }
+        
+        .btn-color {
+            background: transparent;
+        }
+        
+        .btn-color:hover {
+            color: #fff;
+        }
+        
+        .contenido {
+            text-align: center;
+        }
+        
+        .tbDimensiones {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            color: transparent;
+        }
+        
+        #dmAncho {
+            border-radius: 20px;
+            width: 50px
+        }
+        
+        #dmAlto {
+            border-radius: 20px;
+            width: 50px
+        }
+        
+        img {
+            width: 500px;
+            height: auto;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            img {
+                width: 90%;
+            }
+        }
+        
+        body {
+            font-family: silkscreen;
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(229, 229, 231, 1) 0%, rgba(208, 205, 205, 1) 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenido">
+        <h1>Juego de la vida</h1>
+        Inserte las dimensiones del tablero: <br> Ancho: <input oncut="return false" oncopy="return false" onpaste="return false" type="number" name="" id="dmAncho" pattern="[0-9]+"><br> Alto: <input pattern="[0-9]+" type="number" name="" id="dmAlto"
+            oncut="return false" oncopy="return false" onpaste="return false"> <br><br>
+        <a class="btn btn-dark" onclick="crearTablero() ">Crear / Limpiar</a><br><br><br>
+        <a id="play" class="btn btn-dark" onclick="ponerEnMarcha() ">Ejecutar</a><br><br><br>
+        <a id="stop" class="btn btn-dark" onclick="detener() ">Detener</a><br><br>
+        <label>Instrucciones: Una vez creado el tablero, debes pintar cuadros haciendo click a tu antojo, luego ejecuta.</label><br>
+        <label>Alerta: Si el tablero queda en blanco deberás crearlo nuevamente o detener la ejecución.</label><br><br>
+        <label id="reglas"><center>Reglas del Juego</center><br>* Si una célula está viva y tiene dos o tres vecinas vivas, sobrevive. <br>
+            * Si una célula está muerta y tiene tres vecinas vivas, nace.<br>
+            * Si una célula está viva y tiene más de tres vecinas vivas, muere <br>
+        Ejemplo: <br><br>
+        <img src="ejemplo.png" alt="" srcset="" width="90%" height="auto"></label><br><br>
+        <label>¿Quieres apoyarme con alguna donación?</label><br>
+        <label>Haz click en el siguiente botón e introduce su valor en USD, ¡Gracias!</label><br><br>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="business" value="SYR9W43B7TQWU" />
+            <input type="hidden" name="no_recurring" value="1" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_CL/i/scr/pixel.gif" width="1" height="1" />
+        </form><br>
+        <label>Marcos Fernández - 2021</label>
+        <table disabled style="border: 1px solid black; " class="tbDimensiones " id="tbDimensiones "></table>
+
+        <audio id="myAudio ">
+            <source src="mozart-requiem.mp3 " type="audio/mpeg ">
+        </audio>
+    </div>
+</body>
+
+</html>
+
+<script src="script.js "></script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>"
+    />
+    <title>Edad en otros planetas 🚀</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="principal">
+      <h1>Tu edad en otros planetas 🚀</h1>
+      <label for="fecha">Ingrese su fecha de nacimiento:</label><br /><br />
+      <input type="date" name="fechanac" id="fechanac" />
+      <button id="calcular">OK</button>
+      <div class="contenido">
+        <div class="planeta">
+          <img src="resources/Mercurio.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Mercurio es:</div>
+          <div class="descripcionResultado" id="edadMercurio"></div>
+        </div>
+        <div class="planeta">
+          <img src="resources/Venus.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Venus es:</div>
+          <div class="descripcionResultado" id="edadVenus"></div>
+        </div>
+        <div class="planeta">
+          <img src="resources/Tierra.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Tierra es:</div>
+          <div class="descripcionResultado" id="edadTierra"></div>
+        </div>
+        <div class="planeta">
+          <img src="resources/Marte.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Marte es:</div>
+          <div class="descripcionResultado" id="edadMarte"></div>
+        </div>
+        <div class="planeta">
+          <img src="resources/Jupiter.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Jupiter es:</div>
+          <div class="descripcionResultado" id="edadJupiter"></div>
+        </div>
+        <div class="planeta">
+          <img src="resources/Saturno.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Saturno es:</div>
+          <div class="descripcionResultado" id="edadSaturno"></div>
+        </div>
+        <div class="planeta">
+          <img src="resources/Urano.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Urano es:</div>
+          <div class="descripcionResultado" id="edadUrano"></div>
+        </div>
+        <div class="planeta">
+          <img src="resources/Neptuno.gif" alt="" srcset="" />
+          <div class="descripcion">Tu edad en Neptuno es:</div>
+          <div class="descripcionResultado" id="edadNeptuno"></div>
+        </div>
+      </div>
+      <br /><br />
+      <div class="donacion">
+        <label>¿Quieres apoyarme con alguna donación?</label><br />
+        <label
+          >Haz click en el siguiente botón e introduce su valor en USD,
+          ¡Gracias!</label
+        ><br /><br />
+        <form
+          action="https://www.paypal.com/donate"
+          method="post"
+          target="_top"
+        >
+          <input type="hidden" name="business" value="SYR9W43B7TQWU" />
+          <input type="hidden" name="no_recurring" value="1" />
+          <input type="hidden" name="currency_code" value="USD" />
+          <input
+            type="image"
+            src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+            border="0"
+            name="submit"
+            title="PayPal - The safer, easier way to pay online!"
+            alt="Donate with PayPal button"
+          />
+          <img
+            alt=""
+            border="0"
+            src="https://www.paypal.com/en_CL/i/scr/pixel.gif"
+            width="1"
+            height="1"
+          />
+        </form>
+        <br />
+        <label>Marcos Fernández - 2022</label>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>

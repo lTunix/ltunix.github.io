@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:site_name" content="Umbrella Corp">
+    <meta property="og:title" content="Umbrella Corp" />
+    <meta property="og:description" content="Pase de movilidad con temática de Umbrella (Chile)" />
+    <meta property="og:image" itemprop="image" content="/UmbrellaCorp/favicon/android-chrome-192x192.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:updated_time" content="1440432930" />
+    <title>Umbrella Corp</title>
+</head>
+
+<body onload="redireccion()">
+    <div class="content" id="contenido">
+        <img class="logoUmbrella" id="logoPrincipal" src="images/logoUmbrella.png" alt=""><br><br>
+        <label style="color: red">Ahora existen más formatos:</label> <br><br>
+        <select id="changeDNI">
+            <option value="Umbrella">Umbrella DNI</option>
+            <option value="Hunter">Hunter DNI</option>
+        </select><br><br>
+        <div class="instruct">
+            <label>Primero inicia sesión en #YoMeVacuno y descarga el PDF a subir:</label> <br><br>
+            <form target="_blank" action="https://mevacuno.gob.cl/">
+                <input class="action-button" type="submit" value="#YoMeVacuno" />
+            </form>
+            <br>
+            <label>Carga el PDF haciendo click en el icono:</label> <br><br>
+            <form id="formId" action="data/extraerTexto.php" enctype="multipart/form-data" method="post">
+                <div class="image-upload">
+                    <label for="file-input">
+                        <img src="images/pdflogo.png"/>
+                    </label>
+
+                    <input id="file-input" accept="application/pdf" type="file" name="pdf[]" />
+                </div> <br> <br>
+                <label>Inicia el proceso acá:</label> <br><br>
+                <input id="btnIniciar" class="action-button" type="submit" value="Iniciar">
+                <img id="loading" class="loading" src="images/loading.gif" alt="" srcset="">
+            </form><br>
+            <label>Vista Previa</label>
+        </div> <br>
+        <div class="DNI" id="dni">
+            <div class="middleDNI">
+                <div class="qrIMG">
+                    <img id="qrImage" src="" alt="" srcset="">
+                </div>
+                <div class="datos">
+                    <div>Nombres: <label id="nombre"></label></div> <br>
+                    <div class="inp_apellido">Apellidos: <label id="apellidos"></label></div><br>
+                    <div class="inp_run">RUN: <label id="run"></label> </div><br>
+                    <div class="inp_fnac">Fecha de Nacimiento: <label id="fnac"></label></div> <br>
+                    <div class="inp_dosis1"> 1° Dosis: <label id="dosis1"></label></div><br>
+                    <div class="inp_vacadmin1"> Vacuna Administrada: <label id="vacunaadmin1"></label></div> <br>
+                    <div class="inp_dosis2">2° Dosis: <label id="dosis2"></label></div> <br>
+                    <div class="inp_vacadmin2">Vacuna Administrada: <label id="vacunaadmin2"></label></div>
+                </div>
+                <img id="imageDNI" src="images/cardid.jpg" alt="" srcset="">
+                <img class="backDNIUmbrella" src="images/backUmbrella.jpg" alt="" srcset="">
+            </div><br>
+        </div>
+        <button class="action-button" onclick="descargarPase()">Descargar</button><br><br>
+        <label>¿Quieres apoyarme con alguna donación?</label><br>
+        <label>Haz click en el siguiente botón e introduce su valor en USD, ¡Gracias!</label><br><br>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+            <input type="hidden" name="business" value="SYR9W43B7TQWU" />
+            <input type="hidden" name="no_recurring" value="1" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <img alt="" border="0" src="https://www.paypal.com/en_CL/i/scr/pixel.gif" width="1" height="1" />
+        </form><br>
+        <label>Marcos Fernández - 2021</label>
+    </div>
+</body>
+
+</html>
+<script src="data/obtenerDatos.js"></script>

@@ -1,0 +1,77 @@
+body {
+    text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+}
+
+.loading {
+    display: none;
+    width: 70px;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.image-upload img {
+    width: 80px;
+    cursor: pointer;
+}
+
+.middleDNI img {
+    width: 400px;
+    border-radius: 20px;
+}
+
+.logoUmbrella {
+    margin-top: -80px;
+    width: 500px;
+}
+
+.qrIMG {
+    position: absolute;
+    z-index: 9;
+    margin-left: 78px;
+    margin-top: 62px;
+}
+
+.qrIMG img {
+    width: 72px;
+    border-radius: inherit;
+}
+
+.action-button {
+    font: inherit;
+    font-size: 1.25rem;
+    padding: 1em;
+    font-weight: 500;
+    background-color: #d62525;
+    border-radius: 6px;
+    color: #FFF;
+    border: 0;
+}
+
+.datos {
+    color: rgb(235, 235, 235);
+    position: absolute;
+    z-index: 10;
+    margin-left: 156px;
+    width: 115px;
+    font-size: 5px;
+    margin-top: 62px;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: left;
+}
+
+.imgBtn {
+    border-radius: 10px;
+    box-shadow: black 5px 5px;
+}
+
+.middleDNI {
+    width: 487px;
+    margin: 0 auto;
+}
