@@ -1,7 +1,12 @@
 function redireccion() {
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    return;
+  }
+
   if (location.protocol !== 'https:') {
-  location.replace(`https:${location.href.substring(location.protocol.length)}`);
-}
+    // Redireccionar a HTTPS
+    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+  }
 }
 
 function volver() {
@@ -43,6 +48,13 @@ function proyectos() {
 function logros() {
   document.getElementById("enlaces").style.display = "none";
   fetch("logros.html")
+    .then((response) => response.text())
+    .then((text) => (document.getElementById("descripcion").innerHTML = text));
+}
+
+function portafolioVTEX(){
+  document.getElementById("enlaces").style.display = "none";
+  fetch("vtexio.html")
     .then((response) => response.text())
     .then((text) => (document.getElementById("descripcion").innerHTML = text));
 }

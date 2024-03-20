@@ -35,6 +35,24 @@ html {
   animation: fadeIn 2s;
 }
 
+.enlaces .linkVTEX a {
+  background-color: #e21c58;
+  color: white;
+}
+
+.btnVTEX {
+ margin-top: 20px;
+}
+
+.btnVTEX a {
+  background-color: #e21c58;
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 10%;
+  transition: transform 0.2s;
+}
+
 .fotoCentral img {
   border-radius: 40px;
   margin: 0;
@@ -67,7 +85,7 @@ html {
   text-align: center;
 }
 
-.contenidoXS { 
+.contenidoXS {
   overflow-y: scroll;
 }
 
@@ -110,11 +128,11 @@ html {
   font-size: 30px;
 }
 
-.contacto a{
+.contacto a {
   color: white;
 }
 
-.contacto a:hover{
+.contacto a:hover {
   color: white;
 }
 
@@ -165,6 +183,12 @@ html {
 
 .xp p {
   font-size: 15px;
+}
+
+.xp p:last-child {
+  max-height: 140px;
+    height: 100%;
+    overflow: overlay;
 }
 
 .xp img {
@@ -220,6 +244,7 @@ html {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -229,6 +254,7 @@ html {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
