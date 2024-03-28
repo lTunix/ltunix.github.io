@@ -52,6 +52,13 @@ function logros() {
     .then((text) => (document.getElementById("descripcion").innerHTML = text));
 }
 
+function proyectosAndroid(){
+  document.getElementById("enlaces").style.display = "none";
+  fetch("android.html")
+    .then((response) => response.text())
+    .then((text) => (document.getElementById("descripcion").innerHTML = text));
+}
+
 function portafolioVTEX(){
   document.getElementById("enlaces").style.display = "none";
   fetch("vtexio.html")

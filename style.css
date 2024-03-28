@@ -40,6 +40,24 @@ html {
   color: white;
 }
 
+.enlaces .linkAndroid a {
+  background-color: #3ad580;
+  color: white;
+}
+
+.btnAndroid {
+  margin-top: 20px;
+ }
+
+ .btnAndroid a {
+  background-color: #3ad580;
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 10%;
+  transition: transform 0.2s;
+}
+
 .btnVTEX {
  margin-top: 20px;
 }
